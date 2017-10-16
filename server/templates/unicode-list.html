@@ -1,0 +1,64 @@
+<html>
+	<head>
+		<title>{{ title }}</title>
+		<style type="text/css">
+			/*
+			row width: 960px 
+			cell width: 50px, height: 50px, margin: 5px
+			*/
+			/*body {
+				font-family: Verdana, Arial, Helvetica, sans-serif, times, Heiti TC, PMingLiU, PMingLiu-ExtB, SimSun, SimSun-ExtB, HanaMinA, HanaMinB;
+			}*/
+			table.container {
+				margin: 0;
+			    padding: 0;
+			    border: 0;
+			    outline: 0;
+			    font-size: 100%;
+			    vertical-align: baseline;
+			    background: transparent;
+			}
+			td.u {
+				text-align: center; 
+				vertical-align: middle;
+				width: 60px;
+				padding: 1em 0;
+				border-radius: 0.5em;
+			}
+			td.u:hover {
+				background-color: #f0f0f0; 
+			}
+			td.u tt {
+				display: block; 
+				color: #404040; 
+				text-transform: uppercase; 
+				white-space: nowrap; 
+			}
+			td.u span {
+				/* adjust font-size to fill td cell */
+				font-size: 2.7em; 
+				width: 50px; 
+				height: 50px; 
+				line-height: 50px;
+				vertical-align: middle;
+				margin: 5px;
+				display: block; 
+				/* default CJK font SimSun, SimSun-ExtB support CJK and CJK-A and CJK-B */
+				font-family: arial, helvetica, sans-serif, SimSun, SimSun-ExtB; 
+			}
+		</style>
+	</head>
+	<body>
+		<table>
+		{% for i in range(0, len(ideographs), 16) %}
+		<tr class="row">
+			{% for j in range(i, i+16) %}
+			{% if j < len(ideographs) %}
+			<td class="u"><span name="{{ ideographs[j][1] }}" {% if font %} style="font-family: {{ font[1] }};" {% end %}>{{ ideographs[j][0] }}</span><tt>{{ ideographs[j][1] }}</tt></td>
+			{% end %}
+			{% end %}
+		</tr>
+		{% end %}
+		</table>
+	</body>
+</html>

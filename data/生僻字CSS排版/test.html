@@ -1,0 +1,26 @@
+<head>
+	<style type="text/css">
+		img {
+			border: 1px solid black;
+		}
+		.inline{
+		    height:2em;
+		    width:2em;
+		    vertical-align:center;
+		    display:inline;
+		}
+	</style>
+</head>
+<body>
+	<p>利用CSS排版后，像素数量不同的图片可以显示为一样的大小</p>
+	<ul>
+		<li>
+			<p>显示图片原始大小</p>
+			<p><img src="test1.png" /><img src="test3.png" /></p>
+		</li>
+		<li>
+			<p>CSS排版后的图片大小</p>
+			<p><img class="inline" src="test1.png" /><img class="inline" src="test3.png" /></p>
+		</li>
+	</ul>
+</body>

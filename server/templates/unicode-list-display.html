@@ -1,0 +1,109 @@
+<html>
+	<head>
+		<title>{{ title }}</title>
+		<style type="text/css">
+			/*
+			row width: 960px 
+			cell width: 50px, height: 50px, margin: 5px
+			*/
+			/*body {
+				font-family: Verdana, Arial, Helvetica, sans-serif, times, Heiti TC, PMingLiU, PMingLiu-ExtB, SimSun, SimSun-ExtB, HanaMinA, HanaMinB;
+			}*/
+			div.row {
+				clear: both; 
+				float: none; 
+				width: 960px; 
+				overflow: hidden; 
+				padding: 0; 
+				white-space: nowrap; 
+				margin: auto; 
+			}
+			div.u { 
+				float: left; 
+				text-align: center; 
+				width: 60px; 
+				padding: 1em 0; 
+				border-radius: 0.5em; 
+			}
+			div.u:hover { 
+				background-color: #f0f0f0; 
+			}
+			div.u tt { 
+				display: block; 
+				color: #404040; 
+				text-transform: uppercase; 
+				white-space: nowrap; 
+			}
+			div.u span { 
+				font-size: 1.5em; 
+				width: 50px; 
+				height: 50px; 
+				line-height: 50px;
+				vertical-align: middle;
+				margin: 5px;
+				display: block; 
+				/* default CJK font SimSun, SimSun-ExtB support CJK and CJK-A and CJK-B */
+				font-family: arial, helvetica, sans-serif, SimSun, SimSun-ExtB; 
+			}
+			h1 { font-size: 1.5em; }
+			div.wrapper { max-width: 60em; width: 100%; margin: auto; }
+			div.utop form { padding-top: 12px; float: right; }
+			div.utop h1 { padding: 6px 0p; }
+			div.ubottom { border-top: 1px solid #e0e0e0; }
+			div.ubottom form { padding-top: 7px; float: right; }
+		</style>
+		<script type="text/javascript">
+			function blockchange(value) {
+				url = document.location.href;
+				var i = url.indexOf('?');
+				if (i == -1) {
+					query = '';
+				}
+				else {
+					query = url.substring(i);
+				}
+				document.location.replace('/unicode/list/' + value + query);
+			}
+		</script>
+	</head>
+	<body>
+		<div class="wrapper">
+			<h1>帮助文档</h1>
+			<p>CJK 区块列表使用说明</p>
+			<ul>
+				<li>通过 URL 地址来访问不同区块的字符列表，URL 地址格式：/unicode/list/区块简写</li>
+				<li>通过区块筛选框来访问不同区块的字符列表</li>
+			</ul>
+			<p>CJK 字体使用说明</p>
+			<ul>
+				<li>默认使用中易宋体显示字符（仅支持 CJK, CJK-A, CJK-B 字符显示）</li>
+				<li>可以通过 URL 查询参数 font 来设置想要使用的字体，当前支持：PMingLiU, SimSun, HanaMin, BabelStone。具体能否显示字符取决于系统上是否安装了相应的字体</li>
+			</ul>
+		</div>
+		<div class="wrapper utop">
+			<form action="/unicode/list/" method="get">
+				{% if not blockrange %}{{ blockrange }} &nbsp;{% end %}
+				<select name="block" id="block" onchange="blockchange(this.value)">
+					{% for block in blocks %}
+					{% if block[0] == blockabbr %}
+					<option value="{{ block[0] }}" selected="selected">{{ block[1] }} - {{ block[2] }}</option>
+					{% else %}
+					<option value="{{ block[0] }}">{{ block[1] }} - {{ block[2] }}</option>
+					{% end %}
+					{% end %}
+				</select>
+				<noscript>&nbsp; <input type="submit" value="Go" /></noscript>
+			</form>
+			<h1>{{ blockname }}</h1>
+		</div>
+		{% for i in range(0, len(ideographs), 16) %}
+		<div class="row">
+			{% for j in range(i, i+16) %}
+			{% if j < len(ideographs) %}
+			<div class="u"><span name="{{ ideographs[j][1] }}" {% if font %} style="font-family: {{ font[1] }};" {% end %}>{{ ideographs[j][0] }}</span><tt>{{ ideographs[j][1] }}</tt></div>
+			{% end %}
+			{% end %}
+		</div>
+		{% end %}
+	</body>
+</html>
