@@ -1,6 +1,6 @@
 import json
 
-from .client import insert_many
+from .client import insert_many, get_all
 
 data = [(
 	'新细明体',

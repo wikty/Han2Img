@@ -146,6 +146,14 @@ data = [(
 	"https://en.wikipedia.org/wiki/Enclosed_Ideographic_Supplement",
 	"",
 	"Enclosed Ideographic Supplement is a Unicode block containing characters for compatibility with the Japanese ARIB STD-B24 standard. It contains a squared kana word, and many CJK ideographs enclosed with squares, brackets, or circles."
+),(
+	"Private Use Area",
+	"private-use-area",
+	"E000-F8FF",
+	"http://www.unicode.org/charts/PDF/UE000.pdf",
+	"https://en.wikipedia.org/wiki/Private_Use_%28Unicode%29",
+	"",
+	"Private Use Area (PUA) is a range of code points that, by definition, will not be assigned characters by the Unicode Consortium"
 )]
 
 def get_range():
