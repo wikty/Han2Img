@@ -22,6 +22,11 @@ data = [(
 	'BabelStone',
 	'BabelStone Han',
 	"由 [MingLiU](https://www.microsoft.com/typography/fonts/font.aspx?FMID=2140) 和 [MingLiU-ExtB](https://www.microsoft.com/typography/fonts/font.aspx?FMID=1772) 两部分组成。其中 MingLiU 支持 CJK Compatibility, CJK Unified Ideographs, CJK Radicals Supplement, Kangxi Radicals, Ideographic Description Characters, CJK Unified Ideograph Extension A, CJK Unified Ideographs Extension B, CJK Compatibility Ideographs, CJK Compatibility Ideographs Supplement, CJK Compatibility Forms 等字符，MingLiU-ExtB 支持 [Unicode Plane 0]((http://www.unicode.org/roadmaps/bmp/)) 范围以外的字符，而 CJK 字符主要分布在 Unicode Plane 0 和 [Unicode Plane 2](http://www.unicode.org/roadmaps/sip/) 中，因此结合 MingLiU 和 MingLiU-ExtB 理论上可以显示 CJK 所有字符，经过测试后发现 CJK Unified Ideograph Extension C 到 F 的字符仍然无法显示。"
+),(
+	'香港增補字符集',
+	'MingLiUHKSCS',
+	'MingLiU_HKSCS, MingLiU_HKSCS-ExtB',
+	"由 [MingLiU_HKSCS](https://www.microsoft.com/typography/fonts/font.aspx?FMID=1771) 和 [MingLiU_HKSCS-ExtB](https://www.microsoft.com/typography/fonts/font.aspx?FMID=1774) 两部分组成。"
 )]
 
 def get_data():

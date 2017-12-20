@@ -25,5 +25,5 @@ CJK_SERVER_URLS = {
     # 'cjk-cmpt-ideo-sup': 'http://localhost:8888/unicode/list/cjk-cmpt-ideo-sup?font=BabelStone',
     # 'cjk-enclosed': 'http://localhost:8888/unicode/list/cjk-enclosed?font=BabelStone',
     # 'cjk-enclosed-sup': 'http://localhost:8888/unicode/list/cjk-enclosed-sup?font=BabelStone',
-    'private-use-area': 'http://localhost:8888/unicode/list/private-use-area',
+    'private-use-area': 'http://localhost:8888/unicode/list/private-use-area?font=MingLiUHKSCS',
 }
